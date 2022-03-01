@@ -17,12 +17,13 @@ const postsSlice = createSlice({
       },
       //create the id inside reducer so that the component would only need to send the title and content
       //payload. Also prevent duplication
-      prepare(title, content) {
+      prepare(title, content, userId) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
+            user: userId
           }
         }
       }
