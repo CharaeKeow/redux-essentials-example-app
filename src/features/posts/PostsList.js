@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { PostAuthor } from './PostAuthor'
 import { TimeAgo } from './TimeAgo'
+import { ReactionButtons } from './ReactionButton'
 
 export const PostsList = () => {
   const posts = useSelector(state => state.posts) //selector to get the state from store
@@ -17,6 +18,7 @@ export const PostsList = () => {
       <p className='post-content'>{post.content.substring(0, 100)}</p>
       <PostAuthor userId={post.user} />
       <TimeAgo timestamp={post.date} />
+      <ReactionButtons post={post} />
       <Link to={`/posts/${post.id}`} className="button muted-button">
         View Post
       </Link>
